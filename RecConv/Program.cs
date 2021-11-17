@@ -44,10 +44,14 @@ namespace RecConv
         {
             _allContacts = AllContacts;
         }
+
+       
         public void Convert(string path = "", string outPutFileName = "contacts", string delimiter = ";")
         {
             using (StreamWriter sw = File.CreateText($"{path}{outPutFileName}.csv"))
             {
+                sw.WriteLine($"Name{delimiter}Phone");
+
                 foreach (var contact in _allContacts)
                 {
                     sw.WriteLine($"{contact.Name}{delimiter}{contact.Phone}");
